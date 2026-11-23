@@ -1,0 +1,1309 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    background-color: #000000;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* CONTENEDOR GENERAL */
+
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+/*Navegación */
+
+nav {
+    background-color: #000000;
+    width: 1200px;
+    height: 67px;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .contenedor {
+    width: 1200px;
+    height: 100%;
+    padding: 0 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGOTIPO */
+
+nav img {
+    width: 135px;
+    height: auto;
+    margin: 0;
+}
+
+/* ENLACES */
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 45px;
+    width: auto;
+    margin-left: auto;
+    margin-right: 80px;
+    flex-shrink: 0;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #D30D0F;
+}
+
+/* ENCABEZADO */
+
+#encabezado {
+    width: 1200px;
+    height: 587px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+#encabezado .contenedor {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 70px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* TEXTO PRINCIPAL */
+
+#encabezado .carrusel {
+    position: relative;
+    z-index: 2;
+    width: 600px;
+    padding: 0;
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+/* TÍTULO */
+
+#encabezado h1 {
+    font-size: 128px;
+    line-height: 1;
+    font-weight: 400;
+    color: #e90216;
+    margin-bottom: 0;
+}
+
+/* SUBTÍTULO */
+
+#encabezado h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #e90216;
+}
+
+/* DESCRIPCIÓN */
+
+#encabezado .carrusel p {
+    max-width: 500px;
+    font-size: 16px;
+    line-height: 1.3;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* BOTONES */
+
+#encabezado .cta-boton-1,
+#encabezado .cta-boton-2 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+    border-radius: 22px;
+    font-size: 16px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+#encabezado .cta-boton-1 {
+    width: 219px;
+    background-color: #e90216;
+    color: #FFFFFF;
+    border: 1px solid #e90216;
+    margin-right: 3px;
+}
+
+#encabezado .cta-boton-2 {
+    width: 219px;
+    background-color: transparent;
+    color: #e90216;
+    border: 1px solid #e90216;
+}
+
+/* EFECTO HOVER */
+
+#encabezado .cta-boton-1:hover,
+#encabezado .cta-boton-2:hover {
+    background-color: #5c5a5a;
+    border-color: #5c5a5a;
+    color: #FFFFFF;
+}
+
+/*CARRUSEL DE FOTOGRAFÍAS */
+
+#encabezado .carrusel-fotos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#encabezado .carrusel-fotos img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    animation: cambio-foto 15s infinite;
+}
+
+/* TIEMPO DE CADA IMAGEN */
+
+#encabezado .carrusel-fotos img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+#encabezado .carrusel-fotos img:nth-child(2) {
+    animation-delay: 5s;
+}
+
+#encabezado .carrusel-fotos img:nth-child(3) {
+    animation-delay: 10s;
+}
+
+/* OSCURECER FOTOGRAFÍAS */
+
+#encabezado .carrusel-fotos::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.40);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ANIMACIÓN */
+
+@keyframes cambio-foto {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    30% { opacity: 1; }
+    35% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* CINTA DE TEXTO */
+
+.cinta-texto {
+    width: 1200px;
+    height: 55px;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #e90216;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.texto-movimiento {
+    display: flex;
+    width: max-content;
+    animation: deslizar 15s linear infinite;
+}
+
+.texto-movimiento span {
+    font-size: 20px;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-right: 30px;
+    color: #ffffff;
+}
+
+@keyframes deslizar {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* INTEGRANTES */
+
+#Artistas {
+    width: 1200px;
+    height: 587px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-image: url("img/fondo_artistas.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#Artistas .contenedor {
+    width: 1200px;
+    height: 587px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* TÍTULO */
+
+#Artistas .encabezado-artistas {
+    position: absolute;
+    top: 28px;
+    left: 35px;
+    right: 35px;
+    z-index: 3;
+    padding-bottom: 12px;
+    border-bottom: 4px solid #e90216;
+}
+
+#Artistas .encabezado-artistas h2 {
+    color: #ffffff;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: 400;
+    margin: 0;
+}
+
+#Artistas .subtitulo {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* GRILLA DE ARTISTAS */
+
+#Artistas .grilla-Artistas {
+    width: 1130px;
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* TARJETAS */
+
+#Artistas .tarjeta-Artista {
+    position: relative;
+    flex: 0 0 265px;
+    width: 265px;
+    margin: 0;
+}
+
+/* FOTOGRAFÍAS */
+
+#Artistas .retrato {
+    width: 265px;
+    height: 330px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+}
+
+#Artistas .retrato > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* INFORMACIÓN SOBRE LA FOTO */
+
+#Artistas .info-artista {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+    color: #ffffff;
+    background: rgba(35, 35, 35, 0.78);
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 28px;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#Artistas .info-artista h3 {
+    margin-bottom: 12px;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#Artistas .info-artista p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* BOTÓN VER PERFIL */
+
+#Artistas .info-artista a {
+    display: inline-block;
+    padding: 10px 18px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#Artistas .info-artista a:hover {
+    background: #ffffff;
+    color: #292b2b;
+}
+
+/* EFECTO HOVER */
+
+#Artistas .tarjeta-Artista:hover .retrato > img {
+    filter: grayscale(100%);
+    transform: scale(1.04);
+}
+
+#Artistas .tarjeta-Artista:hover .info-artista {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ILUSTRACIÓN DE LNGSHOT */
+
+#Ilustración {
+    width: 1200px;
+    height: 229px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Ilustración .ilustracion-identidad {
+    width: 1200px;
+    height: 229px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Ilustración .ilustracion-identidad img {
+    width: 1200px;
+    height: 229px;
+}
+
+/* DISCOGRAFÍA */
+
+#Discografia {
+    width: 1200px;
+    min-height: 648px;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+
+#Discografia .contenedor {
+    width: 1200px;
+    min-height: 648px;
+    padding: 25px 35px 35px;
+    margin: 0 auto;
+}
+
+/* TÍTULO */
+
+#Discografia h2 {
+    font-size: 64px;
+    line-height: 1;
+    color: #e90216;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid #e90216;
+}
+
+/* GRILLA DE ÁLBUMES */
+
+#Discografia .grilla-albumes {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* TARJETAS */
+
+#Discografia .tarjeta-album {
+    width: 300px;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 18px;
+    background-color: #000000;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+/* PORTADAS */
+
+#Discografia .tarjeta-album img {
+    width: 264px;
+    height: 264px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* NOMBRE DEL ÁLBUM */
+
+#Discografia .tarjeta-album h3 {
+    color: #e90216;
+    font-size: 29px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+/* INFORMACIÓN DEL ÁLBUM */
+
+#Discografia .tarjeta-album p {
+    color: #e90216;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+}
+
+/* BOTÓN EXPLORAR MÁS */
+
+#Discografia .boton-album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 224px;
+    height: 50px;
+    margin: 20px auto 0;
+    background-color: #e90216;
+    color: #ffffff;
+    border-radius: 25px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+#Discografia .boton-album:hover {
+    background-color: #292b2b;
+}
+
+/* ZOOM DE PORTADAS */
+
+#Discografia .tarjeta-album figure {
+    overflow: hidden;
+}
+
+#Discografia .tarjeta-album figure img {
+    transition: transform 0.6s ease !important;
+}
+
+#Discografia .tarjeta-album figure:hover img {
+    transform: scale(1.30) !important;
+}
+
+/* TIENDA*/
+
+#tienda {
+    width: 1200px;
+    min-height: 590px;
+    margin: 0 auto;
+    background-color: #292b2b;
+    color: #ffffff;
+}
+
+#tienda .contenedor {
+    width: 1200px;
+    min-height: 587px;
+    padding: 35px 30px;
+    margin: 0 auto;
+}
+
+/* TÍTULO */
+
+#tienda h2 {
+    font-size: 56px;
+    color: #ffffff;
+    margin: 0 0 45px 0;
+    padding-bottom: 8px;
+    border-bottom: 5px solid #e90216;
+    text-transform: uppercase;
+}
+
+/* GRILLA DE PRODUCTOS */
+
+#tienda .grilla-tienda {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 27px;
+}
+
+/* TARJETAS DE PRODUCTOS */
+
+#tienda .tarjeta-tienda {
+    width: 362px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* IMÁGENES DE PRODUCTOS */
+
+#tienda .tarjeta-tienda figure {
+    width: 362px;
+    height: 240px;
+    overflow: hidden;
+    margin: 0 0 12px 0;
+}
+
+#tienda .tarjeta-tienda figure a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#tienda .tarjeta-tienda figure img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+/* EFECTO DE ZOOM */
+
+#tienda .tarjeta-tienda figure:hover img {
+    transform: scale(1.30);
+}
+
+/* NOMBRE DE LOS PRODUCTOS */
+
+#tienda .tarjeta-tienda h3 {
+    font-size: 30px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 12px 5px;
+}
+
+/* PRECIOS Y DISPONIBILIDAD */
+
+#tienda .tarjeta-tienda p:nth-of-type(2) {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0 0 25px 5px;
+}
+
+/* BOTONES */
+
+#tienda .boton-tienda {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 217px;
+    height: 48px;
+    margin-top: 10px;
+    margin-left: 0;
+    background-color: #e90216;
+    color: #ffffff;
+    border-radius: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+#tienda .boton-tienda:hover {
+    background-color: #ffffff;
+    color: #e90216;
+}
+
+
+
+/* Contacto Sección */
+
+#contacto {
+    width: 1200px;
+    height: 488px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+#contacto > .contenedor {
+    width: 1200px;
+    height: 488px;
+    padding: 45px 20px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+/* TÍTULOS */
+
+#contacto h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+    line-height: 1;
+    color: #e90216;
+    margin: 0 0 10px;
+}
+
+/* COLUMNA IZQUIERDA */
+
+#contacto .columna-izquierda {
+    width: 47.2%;
+    margin-top: 10px;
+}
+
+/* MAPA */
+
+#contacto .mapa {
+    margin-bottom: 12px;
+}
+
+#contacto .mapa iframe {
+    width: 100%;
+    height: 160px;
+    display: block;
+    border: none;
+    border-radius: 24px;
+}
+
+/* CONTACTO */
+
+#contacto .contacto {
+    width: 100%;
+    align-items: flex-start;
+}
+
+#contacto .contacto h2 {
+    font-size: 55px;
+    margin-top: 20px;
+}
+
+#contacto .contacto p {
+    font-size: 16px;
+    color: #D30D0F;
+    margin: 0 0 12px;
+}
+
+/* BOTÓN DE CONTACTO */
+
+#contacto .botones {
+    display: flex;
+    width: calc(100% + 87px);
+    margin-top: 24px;
+    gap: 18px;
+    white-space: nowrap;
+}
+
+#contacto .botones a,
+#contacto .botones button {
+    width: 150px;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    background-color: #e90216;
+    color: #ffffff;
+    border: 1px solid #e90216;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#contacto .botones a:hover,
+#contacto .botones button:hover {
+    background-color: #ffffff;
+    color: #e90216;
+    transform: scale(1.05);
+}
+
+/* COLUMNA DERECHA */
+
+#contacto .columna-derecha {
+    width: 43.6%;
+    align-items: flex-end;
+}
+
+#contacto .columna-derecha h2 {
+    font-size: 55px;
+    text-align: right;
+    margin: 0 0 15px;
+}
+
+/* VIDEO */
+
+#contacto .video {
+    width: 100%;
+    height: 330px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#contacto .video iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+}
+
+
+/* footer inicio*/
+
+#pie {
+    width: 1200px;
+    height: 108px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* FRANJA INFERIOR */
+
+#pie .derechos-autor {
+    width: 1200px;
+    height: 108px;
+    border-top: 1px solid #b5b5b5;
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR */
+
+#pie .derechos-autor .contenedor {
+    width: 1200px;
+    height: 107px;
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+/* LOGOTIPO */
+
+#pie .derechos-autor > .contenedor > img {
+    width: 155px;
+    display: inline-block;
+}
+
+/* REDES SOCIALES */
+
+#pie .redes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#pie .redes img {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+#pie .redes a:hover img {
+    transform: scale(1.2);
+}
+
+/* COPYRIGHT */
+
+#pie .derechos-autor p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: #D30D0F;
+    margin: 0;
+}
+
+/* fin de footer */
+
+/* ajustes responsive */
+
+@media (max-width: 1200px) {
+
+    #contacto,
+    #contacto > .contenedor,
+    #pie,
+    #pie .derechos-autor,
+    #pie .derechos-autor .contenedor {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    /* CONTACTO */
+
+    #contacto {
+        height: auto;
+    }
+
+    #contacto > .contenedor {
+        height: auto;
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    #contacto .columna-izquierda,
+    #contacto .columna-derecha {
+        width: 100%;
+    }
+
+    #contacto .columna-derecha h2 {
+        text-align: left;
+    }
+
+    #contacto .video {
+        height: 250px;
+    }
+
+    /* FOOTER */
+
+    #pie {
+        height: auto;
+    }
+
+    #pie .derechos-autor {
+        height: auto;
+    }
+
+    #pie .derechos-autor .contenedor {
+        height: auto;
+        padding: 25px 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #pie .derechos-autor p {
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================
+    RESPONSIVE - TABLETS Y PANTALLAS MEDIANAS
+========================================= */
+
+@media screen and (max-width: 1199px) {
+
+    nav,
+    #encabezado,
+    .cinta-texto,
+    #Artistas,
+    #Ilustración,
+    #Discografia,
+    #tienda,
+    #pie {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contenedor {
+        width: 90%;
+        max-width: 1200px;
+    }
+
+    /* NAVEGACIÓN */
+
+    nav .contenedor {
+        width: 90%;
+        padding: 0;
+    }
+
+    nav ul {
+        margin-right: 0;
+        gap: 25px;
+    }
+
+    /* ENCABEZADO */
+
+    #encabezado .contenedor {
+        width: 90%;
+        padding: 0;
+    }
+
+    #encabezado .carrusel {
+        max-width: 600px;
+        width: 55%;
+    }
+
+    #encabezado .carrusel-fotos {
+        width: 100%;
+    }
+
+    #encabezado .carrusel-fotos img {
+        width: 100%;
+    }
+
+    /* ARTISTAS */
+
+    #Artistas {
+        height: auto;
+        min-height: 587px;
+        padding-bottom: 40px;
+    }
+
+    #Artistas .contenedor {
+        width: 90%;
+        height: auto;
+        min-height: 587px;
+    }
+
+    #Artistas .grilla-Artistas {
+        width: 100%;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        padding-top: 160px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 265px));
+        justify-content: center;
+        gap: 20px;
+    }
+
+    #Artistas .tarjeta-Artista {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #Artistas .retrato {
+        width: 100%;
+    }
+
+    /* ILUSTRACIÓN */
+
+    #Ilustración {
+        height: auto;
+    }
+
+    #Ilustración .ilustracion-identidad {
+        width: 100%;
+        height: auto;
+    }
+
+    #Ilustración .ilustracion-identidad img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* DISCOGRAFÍA */
+
+    #Discografia .contenedor {
+        width: 90%;
+        min-height: auto;
+        padding: 25px 0 35px;
+    }
+
+    #Discografia .grilla-albumes {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* TIENDA */
+
+    #tienda .contenedor {
+        width: 90%;
+        min-height: auto;
+        padding: 35px 0;
+    }
+
+    #tienda .grilla-tienda {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: center;
+    }
+
+    #tienda .tarjeta-tienda {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #tienda .tarjeta-tienda figure {
+        width: 100%;
+    }
+
+    /* FOOTER */
+
+    #pie > .contenedor,
+    #pie .derechos-autor,
+    #pie .derechos-autor .contenedor {
+        width: 100%;
+    }
+
+    #pie .derechos-autor .contenedor {
+        gap: 20px;
+    }
+
+    #pie .derechos-autor ul {
+        gap: 20px;
+    }
+}
+
+/* =========================================
+RESPONSIVE - CELULARES
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* NAVEGACIÓN */
+
+    nav {
+        height: auto;
+        min-height: 67px;
+    }
+
+    nav .contenedor {
+        width: 90%;
+        min-height: 67px;
+        height: auto;
+        padding: 12px 0;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav img {
+        width: 135px;
+    }
+
+    nav ul {
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* ENCABEZADO */
+
+    #encabezado {
+        height: 587px;
+    }
+
+    #encabezado .contenedor {
+        width: 90%;
+        justify-content: center;
+    }
+
+    #encabezado .carrusel {
+        width: 100%;
+    }
+
+    #encabezado .cta-boton-1,
+    #encabezado .cta-boton-2 {
+        max-width: 100%;
+    }
+
+    /* CINTA */
+
+    .cinta-texto {
+        height: 55px;
+    }
+
+    /* ARTISTAS */
+
+    #Artistas .contenedor {
+        width: 90%;
+    }
+
+    #Artistas .encabezado-artistas {
+        left: 0;
+        right: 0;
+    }
+
+    #Artistas .grilla-Artistas {
+        grid-template-columns: minmax(0, 265px);
+        padding-top: 150px;
+    }
+
+    /* ILUSTRACIÓN */
+
+    #Ilustración .ilustracion-identidad img {
+        object-fit: contain;
+    }
+
+    /* DISCOGRAFÍA */
+
+    #Discografia .contenedor {
+        width: 90%;
+    }
+
+    #Discografia .grilla-albumes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #Discografia .tarjeta-album {
+        width: 300px;
+        max-width: 100%;
+    }
+
+    /* TIENDA */
+
+    #tienda .grilla-tienda {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+    }
+
+    #tienda .tarjeta-tienda {
+        width: 100%;
+    }
+
+    #tienda .tarjeta-tienda figure {
+        width: 100%;
+    }
+
+    /* FOOTER */
+
+    #pie > .contenedor {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    #pie .seguinos {
+        text-align: center;
+    }
+
+    #pie .suscribe {
+        align-items: center;
+    }
+
+    #pie .derechos-autor {
+        height: auto;
+    }
+
+    #pie .derechos-autor .contenedor {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #pie .derechos-autor ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    #pie .derechos-autor p {
+        text-align: center;
+    }
+}
